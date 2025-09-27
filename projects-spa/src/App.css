@@ -1,42 +1,64 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+html, body, #root {
+  font-family: var(--app-fontFamily), system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Inputs & selectors follow design tokens for both themes */
+.ant-input,
+.ant-input-affix-wrapper,
+.ant-input-affix-wrapper:hover,
+.ant-input-affix-wrapper-focused,
+.ant-input-number,
+.ant-input-number:hover,
+.ant-input-number-focused,
+.ant-picker,
+.ant-picker:hover,
+.ant-select .ant-select-selector,
+.ant-select:hover .ant-select-selector,
+.ant-mentions,
+.ant-mentions:hover,
+.ant-input-textarea > textarea {
+  background-color: var(--app-colorBgContainer) !important;
+  color: var(--app-colorText) !important;
+  border-color: var(--app-colorBorder) !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.ant-select .ant-select-selection-placeholder,
+.ant-input::placeholder,
+.ant-mentions .ant-mentions-measure,
+textarea::placeholder,
+input::placeholder {
+  color: var(--app-colorTextPlaceholder) !important;
 }
 
-.card {
-  padding: 2em;
+/* Focus ring to primary */
+.ant-input:focus,
+.ant-input-affix-wrapper-focused,
+.ant-input-number:focus,
+.ant-picker-focused .ant-picker,
+.ant-select-focused .ant-select-selector,
+.ant-mentions:focus {
+  box-shadow: 0 0 0 2px color-mix(in oklab, var(--app-colorPrimary) 20%, transparent);
+  border-color: var(--app-colorPrimary) !important;
 }
 
-.read-the-docs {
-  color: #888;
+/* Disabled states */
+.ant-input[disabled],
+.ant-select-disabled .ant-select-selector,
+.ant-picker-disabled,
+.ant-input-number-disabled,
+.ant-input[disabled]::placeholder,
+.ant-select-disabled .ant-select-selection-placeholder {
+  opacity: 0.6;
+}
+
+.ant-layout-sider-trigger {
+  background-color: var(--ant-colorBgContainer) !important;
+  border: none !important;
+  color: var(--ant-colorText) !important; 
+  box-shadow: none !important;
+}
+
+.ant-layout-sider-trigger:hover {
+  background-color: var(--ant-colorFillSecondary) !important; 
+  color: var(--ant-colorText) !important;
 }
