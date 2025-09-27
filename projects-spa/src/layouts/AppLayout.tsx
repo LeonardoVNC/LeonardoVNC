@@ -1,5 +1,5 @@
 import { Divider, Layout, Menu } from "antd";
-import { HomeOutlined, MenuFoldOutlined, MenuOutlined, ProjectOutlined } from "@ant-design/icons";
+import { FolderOpenOutlined, HomeOutlined, MenuFoldOutlined, MenuOutlined } from "@ant-design/icons";
 import { useState, useMemo } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import ProfileInfo from "../components/ProfileInfo";
@@ -7,11 +7,15 @@ import ProfileInfo from "../components/ProfileInfo";
 const { Sider, Content } = Layout;
 
 const navItems = [
-  { key: "/", icon: <HomeOutlined />, label: <Link to="/">Home</Link> },
+  { 
+    key: "/", 
+    icon: <HomeOutlined />, 
+    label: <Link to="/">Home</Link> 
+  },
   {
     key: "/projects",
-    icon: <ProjectOutlined />,
-    label: <Link to="/projects">Projects</Link>,
+    icon: <FolderOpenOutlined />,
+    label: <Link to="/projects">My Projects</Link>,
   },
 ];
 
@@ -74,14 +78,8 @@ export default function AppLayout() {
           }}
         />
       </Sider>
-
       <Layout className="flex flex-col min-h-0">
-        <Content 
-          className="flex-1 min-h-0 overflow-hidden pt-4 md:p-6" 
-          style={{ 
-            background: "var(--ant-colorBgLayout)",
-          }}
-        >
+        <Content>
           <Outlet />
         </Content>
       </Layout>
