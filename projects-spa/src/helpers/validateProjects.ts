@@ -4,7 +4,7 @@ const validDevTags: Set<DevTag> = new Set(['Web', 'Mobile', 'Other']);
 const validSkillTags: Set<SkillTag> = new Set([
     'NestJS', 'ExpressJS', 'NodeJS', 'PostgreSQL', 'Prisma', 'Knex', 
     'MongoDB', 'Mongoose', 'ReactJS', 'MUI', 'AntDesign', 'Tailwind', 
-    'AndroidStudio', 'TypeScript', 'JavaScript', 'Kotlin', 'Java', 'Arduino'
+    'AndroidStudio', 'TypeScript', 'JavaScript', 'Kotlin', 'Java', 'Arduino', 'C++'
 ]);
 
 function validateProject(raw: any): raw is Project {

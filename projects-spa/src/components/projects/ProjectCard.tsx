@@ -1,12 +1,18 @@
-import { Card, Typography,  Divider } from "antd";
+import { Card, Typography } from "antd";
 import type { Project } from "../../interfaces/Project";
 import ProjectDevTags from "./ProjectDevTags";
 import ProjectSkillTags from "./ProjectSkillTags";
-import ProjectRepos from "./ProjectRepos";
+import { useNavigate } from "react-router-dom";
 
 const { Title, Paragraph } = Typography;
 
 const ProjectCard = ({ project }: { project: Project }) => {
+    const navigate = useNavigate();
+
+    const goToProject = () => {
+        navigate(`/projects/${project.id}`)
+    }
+
     return (
         <Card
             style={{
@@ -17,6 +23,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
                 overflow: "hidden",
                 boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
             }}
+            onClick={goToProject}
             hoverable
         >
             <Title level={4} >
@@ -24,7 +31,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
             </Title>
 
             <Paragraph
-                ellipsis={{ rows: 2, expandable: true }}
+                ellipsis={{ rows: 2, expandable: false }}
                 style={{ marginBottom: 16, color: "#666" }}
             >
                 {project.description}
@@ -32,10 +39,6 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
             <ProjectDevTags tags={project.devTag} />
             <ProjectSkillTags tags={project.skills} />
-
-            <Divider style={{ margin: "12px 0" }} plain />
-
-            <ProjectRepos repos={project.repos}/>
         </Card>
     );
 };

@@ -19,6 +19,7 @@ const skillBadgeUrls: Record<SkillTag, string> = {
     Kotlin: "https://img.shields.io/badge/Kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white",
     Java: "https://img.shields.io/badge/Java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=black",
     Arduino: "https://img.shields.io/badge/Arduino-%2300878F.svg?style=for-the-badge&logo=arduino&logoColor=white",
+    "C++": "https://img.shields.io/badge/C++-%2300599C.svg?style=for-the-badge&logo=cplusplus&logoColor=white",
 } as const;
 
 const SkillTagFactory = ({ tag }: { tag: SkillTag }) => {

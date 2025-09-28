@@ -1,19 +1,25 @@
 [
     {
+        "id" : "1",
         "title": "Basic course - Arduino",
         "description": "As an Arduino enthusiast and vice-president at the RAS chapter of the IEEE branch of my university, I developed a quick course on Arduino, in which the basics of programming in this language and the necessary connections to make everything work on a breadboard are taught. I achieved this with the support of the Arduino IDE and tools such as TinkerCad to show the connections. I have taught this course in person on 3 occasions to first and second year students at my university.",
         "devTag": ["Other"],
         "skills": [
-            "Arduino"
+            "Arduino",
+            "C++"
         ],
         "repos": [
             {
                 "url": "https://github.com/LeonardoVNC/Arduino",
                 "desc": "Project Repository"
             }
+        ],
+        "imgURL": [
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Arduino_Logo_Registered.svg/1200px-Arduino_Logo_Registered.svg.png"
         ]
     },
     {
+        "id" : "2",
         "title": "Android App aimed at the control of addictions",
         "description": "I led a small development group in the creation of an Android application aimed at the control and management of addictions. The application seeks to encourage and help the user to leave behind various addictions with tools that motivate them to avoid relapses and congratulate each small step on their road to recovery.",
         "devTag": ["Mobile"],

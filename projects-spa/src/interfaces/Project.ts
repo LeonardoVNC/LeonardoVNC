@@ -1,9 +1,11 @@
 export interface Project {
+    id: string,
     title: string,
     description: string,
     devTag: DevTag[];
     skills: SkillTag[];
     repos: RepoInfo[];
+    imgURL?: string[];
 }
 
 //No te olvides modificar el helper si agregas nuevas tags aca
@@ -27,6 +29,7 @@ export type SkillTag = 'NestJS'
     | 'Kotlin'
     | 'Java'
     | 'Arduino'
+    | 'C++'
 
 export interface RepoInfo {
     url: string,
