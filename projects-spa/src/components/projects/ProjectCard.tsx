@@ -1,6 +1,5 @@
-import { Card, Typography, Button, Space, Divider } from "antd";
+import { Card, Typography,  Divider } from "antd";
 import type { Project } from "../../interfaces/Project";
-import { GithubOutlined } from "@ant-design/icons";
 import ProjectDevTags from "./ProjectDevTags";
 import ProjectSkillTags from "./ProjectSkillTags";
 import ProjectRepos from "./ProjectRepos";
@@ -36,7 +35,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
             <Divider style={{ margin: "12px 0" }} plain />
 
-            <ProjectRepos repos={project.repoURLs}/>
+            <ProjectRepos repos={project.repos}/>
         </Card>
     );
 };

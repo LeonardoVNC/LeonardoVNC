@@ -15,7 +15,7 @@ function validateProject(raw: any): raw is Project {
         raw.devTag.every((tag: string) => validDevTags.has(tag as DevTag)) &&
         Array.isArray(raw.skills) &&
         raw.skills.every((tag: string) => validSkillTags.has(tag as SkillTag)) &&
-        Array.isArray(raw.repoURLs) &&
+        Array.isArray(raw.repos) &&
         (raw.img === undefined || typeof raw.img === 'string')
     ) {
         return true;
