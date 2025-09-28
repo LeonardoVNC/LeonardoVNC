@@ -18,7 +18,11 @@
             }
         ],
         "imgURL": [
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Arduino_Logo_Registered.svg/1200px-Arduino_Logo_Registered.svg.png"
+            "/images/projects/arduino/Arduino.png",
+            "/images/projects/arduino/ard.jpg",
+            "/images/projects/arduino/ptc.jpg",
+            "/images/projects/arduino/ldr.jpg",
+            "/images/projects/arduino/infr.jpg"
         ]
     },
     {

@@ -1,5 +1,5 @@
 import PageTemplate from "../../components/PageTemplate";
-import rawProjects from '../../../public/data/projects.json' assert { type: 'json' };
+import rawProjects from '../../assets/data/projects.json' assert { type: 'json' };
 import type { Project } from "../../interfaces/Project";
 import { getProjects } from "../../helpers/validateProjects";
 import ProjectList from "../../components/projects/ProjectList";

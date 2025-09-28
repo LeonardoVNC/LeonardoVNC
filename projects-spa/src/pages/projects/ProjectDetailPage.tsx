@@ -6,6 +6,7 @@ import PageTemplate from "../../components/PageTemplate";
 import { Card, Divider, Spin, Typography } from "antd";
 import ProjectRepos from "../../components/projects/ProjectRepos";
 import ProjectSkillTags from "../../components/projects/ProjectSkillTags";
+import ImageSection from "../../components/projects/ImageSection";
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -74,6 +75,18 @@ function ProjectDetailPage() {
         </>
     }, [project])
 
+    const imageSection = useMemo(() => {
+        if (!project?.imgURL) return <></>
+
+        return <>
+            <ImageSection
+                title="More images"
+                images={project.imgURL.slice(1)}
+            />
+            <Divider style={{ margin: "12px 0" }} plain />
+        </>
+    }, [project])
+
     if (loading) {
         return (
             <PageTemplate
@@ -110,7 +123,7 @@ function ProjectDetailPage() {
                 <Divider style={{ margin: "12px 0" }} plain />
 
                 {description}
-
+                {imageSection}
                 <ProjectRepos repos={project?.repos || []} />
             </Card>
         </PageTemplate>
