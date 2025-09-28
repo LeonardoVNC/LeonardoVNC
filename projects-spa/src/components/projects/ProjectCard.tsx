@@ -34,7 +34,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
                 ellipsis={{ rows: 2, expandable: false }}
                 style={{ marginBottom: 16, color: "#666" }}
             >
-                {project.description}
+                {project.descriptionPar[0]}
             </Paragraph>
 
             <ProjectDevTags tags={project.devTag} />

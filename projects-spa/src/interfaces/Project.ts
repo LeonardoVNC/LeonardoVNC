@@ -1,7 +1,7 @@
 export interface Project {
     id: string,
     title: string,
-    description: string,
+    descriptionPar: string[],
     devTag: DevTag[];
     skills: SkillTag[];
     repos: RepoInfo[];

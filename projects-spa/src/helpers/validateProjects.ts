@@ -10,7 +10,7 @@ const validSkillTags: Set<SkillTag> = new Set([
 function validateProject(raw: any): raw is Project {
     if (
         typeof raw.title === 'string' &&
-        typeof raw.description === 'string' &&
+        Array.isArray(raw.descriptionPar) &&
         Array.isArray(raw.devTag) &&
         raw.devTag.every((tag: string) => validDevTags.has(tag as DevTag)) &&
         Array.isArray(raw.skills) &&
