@@ -13,7 +13,13 @@ const ToProjectSection = () => {
     }
 
     return (
-        <Card style={{ overflow: "hidden", padding: 12, margin: "auto" }}>
+        <Card style={{
+            overflow: "hidden",
+            width: "100%",
+            height: "100%",
+            padding: 12,
+            margin: "auto"
+        }}>
             <Title level={3} style={{ textAlign: "center" }}>
                 Check my Projects!
             </Title>

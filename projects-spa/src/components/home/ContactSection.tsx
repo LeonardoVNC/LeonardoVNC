@@ -26,11 +26,17 @@ const ContactSection = () => {
     }, [])
 
     return (
-        <Card style={{ overflow: "hidden", padding: 12, margin: "auto" }}>
+        <Card style={{
+            overflow: "hidden",
+            width: "100%",
+            height: "100%",
+            padding: 12,
+            margin: "auto",
+        }}>
             <Title level={3} style={{ textAlign: "center" }}>
                 Contact Me
             </Title>
-            <Paragraph style={{ textAlign: "center" }}>
+            <Paragraph style={{ textAlign: "center", marginBottom: 16, color: "#AAA" }}>
                 If you are interested in my work, feel free to reach out to me through any of the following platforms:
             </Paragraph>
             <Space size="large" style={{ display: "flex", justifyContent: "center" }}>
