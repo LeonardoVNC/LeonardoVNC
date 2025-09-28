@@ -43,7 +43,7 @@ const WelcomeSection = () => {
                         <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35" />
                     </div>
                     {descriptions.map((desc, index) => (
-                        <Paragraph key={`desc-${index}`}>
+                        <Paragraph key={`desc-${index}`} style={{ marginBottom: 16, color: "#AAA" }}>
                             {desc}
                         </Paragraph>
                     ))}

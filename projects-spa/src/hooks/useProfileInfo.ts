@@ -25,11 +25,29 @@ const useProfileInfo = () => {
         return info.desc
     }, [info])
 
+    const getGitHub = useCallback(() => {
+        if (!info.gitHubURL) {
+            console.error("No GitHub URL provided")
+            return
+        }
+        return info.gitHubURL
+    }, [info])
+
+    const getLinkedIn = useCallback(() => {
+        if (!info.linkedInURL) {
+            console.error("No LinkedIn URL provided")
+            return
+        }
+        return info.linkedInURL
+    }, [info])
+
     return {
         getName,
         getSecondaryName,
         getAvatar,
         getDescription,
+        getGitHub,
+        getLinkedIn,
     }
 }
 
