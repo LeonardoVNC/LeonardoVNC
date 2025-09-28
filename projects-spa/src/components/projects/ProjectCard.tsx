@@ -11,7 +11,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
         <Card
             style={{
                 width: "100%",
-                maxWidth: 500,
+                maxWidth: 490,
                 borderRadius: 12,
                 position: "relative",
                 overflow: "hidden",

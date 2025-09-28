@@ -2,7 +2,7 @@ import PageTemplate from "../../components/PageTemplate";
 import rawProjects from '../../../public/data/projects.json' assert { type: 'json' };
 import type { Project } from "../../interfaces/Project";
 import { getProjects } from "../../helpers/validateProjects";
-import ProjectCard from "../../components/projects/ProjectCard";
+import ProjectList from "../../components/projects/ProjectList";
 
 const ProjectsPage = () => {
     const projectList: Project[] = getProjects(rawProjects);
@@ -16,11 +16,7 @@ const ProjectsPage = () => {
             title="Projects"
             subtitle="Take a look at the projects I've worked on."
         >
-            {projectList.map((project: Project) => (
-                <ProjectCard
-                    project={project}
-                />
-            ))}
+            <ProjectList projects={projectList}/>
         </PageTemplate>
     );
 };
