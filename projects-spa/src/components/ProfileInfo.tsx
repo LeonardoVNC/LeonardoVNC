@@ -1,7 +1,15 @@
 import { Avatar, Typography } from "antd";
 import { useState, useEffect } from "react";
 
-const ProfileInfo = ({ photoURL, name, collapsed }: { photoURL: string; name: string; collapsed: boolean }) => {
+type ProfileInfoProps = {
+    photoURL: string;
+    name: string;
+    collapsed?: boolean,
+    imgSize?: number,
+    fontSize?: number,
+}
+
+const ProfileInfo = ({ photoURL, name, collapsed, imgSize = 64, fontSize = 16 }: ProfileInfoProps) => {
     const [isVisible, setIsVisible] = useState(!collapsed);
 
     useEffect(() => {
@@ -25,16 +33,16 @@ const ProfileInfo = ({ photoURL, name, collapsed }: { photoURL: string; name: st
             }}
         >
             <Avatar
-                size={collapsed ? 32 : 64}
+                size={collapsed ? imgSize / 2 : imgSize}
                 src={photoURL}
                 style={{
                     background: "var(--ant-colorBorder)",
                     border: "1px solid var(--ant-colorBorder)",
                 }}
             />
-            <Typography.Text 
+            <Typography.Text
                 style={{
-                    fontSize: 16,
+                    fontSize: fontSize,
                     opacity: isVisible ? 1 : 0,
                     maxHeight: isVisible ? "100px" : "0",
                     overflow: "hidden",

@@ -1,16 +1,17 @@
 import { Divider, Layout, Menu } from "antd";
 import { FolderOpenOutlined, HomeOutlined, MenuFoldOutlined, MenuOutlined } from "@ant-design/icons";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import ProfileInfo from "../components/ProfileInfo";
+import useProfileInfo from "../hooks/useProfileInfo";
 
 const { Sider, Content } = Layout;
 
 const navItems = [
-  { 
-    key: "/", 
-    icon: <HomeOutlined />, 
-    label: <Link to="/">Home</Link> 
+  {
+    key: "/",
+    icon: <HomeOutlined />,
+    label: <Link to="/">Home</Link>
   },
   {
     key: "/projects",
@@ -21,7 +22,10 @@ const navItems = [
 
 export default function AppLayout() {
   const [collapsed, setCollapsed] = useState(false);
+  const [name, setName] = useState("")
+  const [avatar, setAvatar] = useState("")
   const { pathname } = useLocation();
+  const { getName, getAvatar } = useProfileInfo();
 
   const selectedKey = useMemo(() => {
     const match = navItems.find((i) =>
@@ -40,6 +44,15 @@ export default function AppLayout() {
     </>
   );
 
+  const loadInfo = () => {
+    setName(getName());
+    setAvatar(getAvatar());
+  }
+
+  useEffect(() => {
+    loadInfo();
+  }, [])
+
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Sider
@@ -57,8 +70,8 @@ export default function AppLayout() {
         }}
       >
         <ProfileInfo
-          photoURL="https://avatars.githubusercontent.com/u/165107546?v=4"
-          name="LeonardoVNC"
+          photoURL={avatar}
+          name={name}
           collapsed={collapsed}
         />
 
@@ -74,7 +87,7 @@ export default function AppLayout() {
             flex: 1,
             overflowY: "auto",
             background: "transparent",
-            color: "var(--ant-colorText)", 
+            color: "var(--ant-colorText)",
           }}
         />
       </Sider>
