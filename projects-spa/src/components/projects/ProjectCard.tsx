@@ -38,7 +38,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
             </Paragraph>
 
             <ProjectDevTags tags={project.devTag} />
-            <ProjectSkillTags tags={project.skills} />
+            <ProjectSkillTags tags={project.skills} limit={5}/>
         </Card>
     );
 };

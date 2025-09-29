@@ -76,7 +76,7 @@ function ProjectDetailPage() {
     }, [project])
 
     const imageSection = useMemo(() => {
-        if (!project?.imgURL) return <></>
+        if (!project?.imgURL || project.imgURL.slice(1).length <= 0) return <></>
 
         return <>
             <ImageSection

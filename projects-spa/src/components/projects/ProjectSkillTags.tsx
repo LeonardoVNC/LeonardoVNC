@@ -4,10 +4,11 @@ import SkillTagFactory from "./SkillTagFactory";
 import { useMemo } from "react";
 const { Text } = Typography;
 
-const ProjectSkillTags = ({ tags }: { tags: SkillTag[] }) => {
+const ProjectSkillTags = ({ tags, limit }: { tags: SkillTag[], limit?: number }) => {
     const skillTags = useMemo(() => {
+        const skills = limit ? tags.slice(0, limit) : tags 
         return <Space size={[4, 8]} wrap style={{ justifyContent: "flex-start" }}>
-            {tags.slice(0, 5).map((skill) => (
+            {skills.map((skill) => (
                 <SkillTagFactory tag={skill} />
             ))}
         </Space>
