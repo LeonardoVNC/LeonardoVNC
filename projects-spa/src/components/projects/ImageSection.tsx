@@ -3,6 +3,8 @@ import { Typography, Image, Row, Col } from "antd";
 const { Title } = Typography;
 const { PreviewGroup } = Image;
 
+const baseURL = import.meta.env.BASE_URL;
+
 const ImageSection = ({ title, images }: { title: string; images: string[] }) => {
     const IMAGE_SIZE = 220;
 
@@ -19,7 +21,7 @@ const ImageSection = ({ title, images }: { title: string; images: string[] }) =>
                             style={{ display: "flex" }}
                         >
                             <Image
-                                src={src}
+                                src={`${baseURL}${src}`}
                                 alt={`${title} - image ${index + 1}`}
                                 style={{
                                     width: IMAGE_SIZE,

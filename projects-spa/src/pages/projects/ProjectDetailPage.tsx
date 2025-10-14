@@ -16,6 +16,7 @@ function ProjectDetailPage() {
     const { getProjectByID } = useProjects();
 
     const { id } = useParams();
+    const baseURL = import.meta.env.BASE_URL;
 
     const fetchProject = async () => {
         if (!id) return
@@ -45,7 +46,7 @@ function ProjectDetailPage() {
                 margin: 20,
             }}>
                 <img
-                    src={project?.imgURL[0]}
+                    src={`${baseURL}${project?.imgURL[0]}`}
                     style={{
                         height: "auto",
                         maxWidth: "35%",
