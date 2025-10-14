@@ -59,9 +59,12 @@
 ![Kotlin](https://img.shields.io/badge/Kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=black)
 ![cpp](https://img.shields.io/badge/C++-%2300599C.svg?style=for-the-badge&logo=cplusplus&logoColor=white)
+![Python](https://img.shields.io/badge/Python-%233776AB.svg?style=for-the-badge&logo=python&logoColor=white)
 ![Scala](https://img.shields.io/badge/Scala-%23DC322F.svg?style=for-the-badge&logo=scala&logoColor=white)
 
 ![Arduino](https://img.shields.io/badge/Arduino-%2300878F.svg?style=for-the-badge&logo=arduino&logoColor=white)
 ![Latex](https://img.shields.io/badge/Latex-%23008080.svg?style=for-the-badge&logo=latex&logoColor=white)
+![Godot](https://img.shields.io/badge/Godot_Engine-%23478CBF.svg?style=for-the-badge&logo=godotengine&logoColor=white)
+![Xtend](https://img.shields.io/badge/Xtend-100000?style=for-the-badge)
 
 ---

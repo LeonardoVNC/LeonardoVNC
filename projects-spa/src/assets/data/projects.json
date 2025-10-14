@@ -1,6 +1,6 @@
 [
     {
-        "id" : "1",
+        "id" : "arduino",
         "title": "Basic course - Arduino",
         "descriptionPar": [
             "As an Arduino enthusiast and vice-president at the RAS chapter of the IEEE branch of my university, I developed a quick course on Arduino, in which the basics of programming in this language and the necessary connections to make everything work on a breadboard are taught.",
@@ -26,22 +26,268 @@
         ]
     },
     {
-        "id" : "2",
-        "title": "Android App aimed at the control of addictions",
+        "id" : "quitify",
+        "title": "Control of addictions Android App",
         "descriptionPar": [
             "I led a small development group in the creation of an Android application aimed at the control and management of addictions.",
             "The application seeks to encourage and help the user to leave behind various addictions with tools that motivate them to avoid relapses and congratulate each small step on their road to recovery."
         ],
         "devTag": ["Mobile"],
         "skills": [
-            "AndroidStudio",
-            "Kotlin"
+            "Kotlin",
+            "AndroidStudio"
         ],
         "repos": [
             {
                 "url": "https://github.com/LeonardoVNC/Quitify",
                 "desc": "Project Repository"
             }
+        ],
+        "imgURL": [
+            "/images/projects/quitify/quit.png",
+            "/images/projects/quitify/main.jpg",
+            "/images/projects/quitify/chat.jpg",
+            "/images/projects/quitify/act.jpg"
+        ]
+    },
+    {
+        "id" : "skylink",
+        "title": "Route Optimization App - Dijkstra Algorithm",
+        "descriptionPar": [
+            "I developed an Android application to calculate routes and prices of the La Paz-El Alto Cable Car, reducing searches and calculations from several minutes to a single operation carried out in a few seconds.",
+            "The app uses Java for the implementation of the Dijkstra Algorithm and communicates with Kotlin for the presentation of the data in Android Activities. These results are presented with a user-friendly interface, this interface was gradually improved with recommendations that I received from acquaintances who tried the app.",
+            "Design and architectural patterns were also implemented to keep the app scalable. The Design patterns used on the app are Singleton, Observer, Proxy and Adapter."
+        ],
+        "devTag": ["Mobile"],
+        "skills": [
+            "Kotlin",
+            "Java",
+            "AndroidStudio"
+        ],
+        "repos": [
+            {
+                "url": "https://github.com/LeonardoVNC/SkyLinkApp",
+                "desc": "Project Repository"
+            }
+        ],
+        "imgURL": [
+            "/images/projects/skylink/tel.png",
+            "/images/projects/skylink/main.jpg",
+            "/images/projects/skylink/prices.jpg",
+            "/images/projects/skylink/select.jpg",
+            "/images/projects/skylink/estaciones.jpg",
+            "/images/projects/skylink/route.jpg",
+            "/images/projects/skylink/detail.jpg"
+        ]
+    },
+    {
+        "id" : "e-commerce",
+        "title": "Basic E-Commerce",
+        "descriptionPar": [
+            "I worked within a small development team in which we created a small general-purpose E-Commerce. Within the project, Design Patterns were used to improve the use of certain functionalities within the application.",
+            "Sadly, I've lost access to the data base on Mongo Atlas, as a result, I can't take more images of the project working."
+        ],
+        "devTag": ["Web"],
+        "skills": [
+            "NodeJS",
+            "NestJS",
+            "ReactJS",
+            "MongoDB",
+            "Mongoose",
+            "TypeScript",
+            "Tailwind"
+        ],
+        "repos": [
+            {
+                "url": "https://github.com/IvanTicona/E-Commerce-Design-Patterns",
+                "desc": "Project Repository"
+            }
+        ],
+        "imgURL": [
+            "/images/projects/ecommerce/main.jpg"
+        ]
+    },
+    {
+        "id" : "upb-system",
+        "title": "Academic Process system page",
+        "descriptionPar": [
+            "I am currently contributing to the development of a website aimed at the optimization and automation of academic processes within my University. This page is in charge of managing the registration of students and interns, registers teachers and organizes graduation processes, allowing the creation of new processes and updating the information of the processes that are in progress",
+            "We employ the Scrum methodology and split into multiple development teams to separate the work and roles of each team. I have worked in QA and in the development of Frontend and Backend."
+        ],
+        "devTag": ["Web"],
+        "skills": [
+            "ExpressJS",
+            "ReactJS",
+            "PostgreSQL",
+            "Knex",
+            "MUI",
+            "TypeScript",
+            "Tailwind"
+        ],
+        "repos": [
+            {
+                "url": "https://github.com/PaulLandaeta/isc-system-web",
+                "desc": "Frontend Repository"
+            },
+            {
+                "url": "https://github.com/PaulLandaeta/isc-system-core",
+                "desc": "Backend Repository"
+            }
+        ],
+        "imgURL": [
+            "/images/projects/isc-system/upb.png",
+            "/images/projects/isc-system/main.png",
+            "/images/projects/isc-system/students.png",
+            "/images/projects/isc-system/process.png",
+            "/images/projects/isc-system/processT.png"
+        ]
+    },
+    {
+        "id" : "mini-crud",
+        "title": "Mini CRUD app",
+        "descriptionPar": [
+            "Trying to solve my low knowledge in the use of REST APIs and as a way to practice my use of MongoDB, I worked on a small project oriented to the managing of CRUD operations.",
+            "The project is quite small, but at the time it helped me understand the basics of REST APIs and remember how to use MongoDB."
+        ],
+        "devTag": ["Web"],
+        "skills": [
+            "ReactJS",
+            "ExpressJS",
+            "TypeScript",
+            "MongoDB",
+            "Mongoose"
+        ],
+        "repos": [
+            {
+                "url": "https://github.com/LeonardoVNC/MiniCRUD",
+                "desc": "Project Repository"
+            }
+        ]
+    },
+    {
+        "id" : "chaotic-dsl",
+        "title": "My own programming language",
+        "descriptionPar": [
+            "Chaotic is an esoteric programming language inspired by Discord, an instant messaging app, with the implementation of procedures, data types, arrays, and throwing exceptions.",
+            "It is a Turing Complete programming language, it is procedural, uses global variables and compiles to Java, so it can be run on a Java Virtual Machine."
+        ],
+        "devTag": ["Other"],
+        "skills": [
+            "Xtend"
+        ],
+        "repos": [
+            {
+                "url": "https://github.com/LeonardoVNC/ChaoticDSL",
+                "desc": "Project Repository"
+            }
+        ],
+        "imgURL": [
+            "/images/projects/chaotic/chat.jpg",
+            "/images/projects/chaotic/chaotic-fibo.png",
+            "/images/projects/chaotic/chaotic-java.png",
+            "/images/projects/chaotic/chaotic-expr.png",
+            "/images/projects/chaotic/chaotic-operators.png"
+        ]
+    },
+    {
+        "id" : "angry-clone",
+        "title": "Angry Birds - basic clone",
+        "descriptionPar": [
+            "I developed a small clone of Angry Birds, the video game, using Python's Arcade library.",
+            "This project is quite small, but it includes a difficulty selector, implementation of several of the birds available in the original game, collision and scoring management."
+        ],
+        "devTag": ["VideoGame"],
+        "skills": [
+            "Python"
+        ],
+        "repos": [
+            {
+                "url": "https://github.com/LeonardoVNC/Infografia-1erParcial",
+                "desc": "Project Repository"
+            }
+        ],
+        "imgURL": [
+            "/images/projects/angry-birds/RedBird.webp",
+            "/images/projects/angry-birds/diff.png",
+            "/images/projects/angry-birds/main.png",
+            "/images/projects/angry-birds/final.png"
+        ]
+    },
+    {
+        "id" : "candy-clone",
+        "title": "Candy crush - basic clone",
+        "descriptionPar": [
+            "I developed a small clone of the Candy Crush video game. This clone was developed with Godot Engine and includes the core mechanics of the original game, such as the creation of special tiles by destroying 4 or 5 tiles with a single move, as well as implementing a special tile when creating L or T formations.",
+            "There are two main game modes, one with a turn limit and the other with a time limit."
+        ],
+        "devTag": ["VideoGame"],
+        "skills": [
+            "Godot"
+        ],
+        "repos": [
+            {
+                "url": "https://github.com/LeonardoVNC/Infografia-2doParcial",
+                "desc": "Project Repository"
+            }
+        ],
+        "imgURL": [
+            "/images/projects/candy/title.png",
+            "/images/projects/candy/main.png",
+            "/images/projects/candy/game.png"
+        ]
+    },
+    {
+        "id" : "undertale-simulator",
+        "title": "Undertale - Battle Simulator",
+        "descriptionPar": [
+            "I developed a simulator of the final battle in the video game Undertale. This simulator was developed with Godot Engine as the main tool. The project's assets are mostly obtained from the internet, but I redrawn some to adapt their size to the one used in the project.",
+            "The project focuses on simulating the game's final battle, applying the mechanics of attack generation, turn management, implementation of player actions, and loading combat dialogues."
+        ],
+        "devTag": ["VideoGame"],
+        "skills": [
+            "Godot"
+        ],
+        "repos": [
+            {
+                "url": "https://github.com/LeonardoVNC/Infografia-Examen-Final",
+                "desc": "Project Repository"
+            }
+        ],
+        "imgURL": [
+            "/images/projects/undertale/main.png",
+            "/images/projects/undertale/game.png",
+            "/images/projects/undertale/attack.png"
+        ]
+    },
+    {
+        "id" : "learning-agent",
+        "title": "Academic Management page supported with AI",
+        "descriptionPar": [
+            "I led one of four development teams in the creation of a website for managing subjects and classes, creating exams for teachers, interview simulations, and providing study support for students. This was supported by APIs from various AIs to synthesize information from the system and process it into products that users could consume, such as generated exams or quizzes tailored to a specific topic.",
+            "I was also responsible for leading all devs responsible for the system's backend, verifying compliance with best practices, the correct application of Hexagonal Architecture, reviewing pull requests in the GitHub repository, and constantly monitoring the project's proper functioning."
+        ],
+        "devTag": ["Web"],
+        "skills": [
+            "NestJS",
+            "ReactJS",
+            "PostgreSQL",
+            "Prisma",
+            "AntDesign",
+            "TypeScript"
+        ],
+        "repos": [
+            {
+                "url": "https://github.com/PaulLandaeta/Learning-Agent",
+                "desc": "Project Repository"
+            }
+        ],
+        "imgURL": [
+            "/images/projects/learning/upb.png",
+            "/images/projects/learning/main.png",
+            "/images/projects/learning/courses.png",
+            "/images/projects/learning/classes.png",
+            "/images/projects/learning/attendance.png",
+            "/images/projects/learning/db.png"
         ]
     }
 ]

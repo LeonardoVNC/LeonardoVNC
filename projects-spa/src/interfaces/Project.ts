@@ -9,11 +9,12 @@ export interface Project {
 }
 
 //No te olvides modificar el helper si agregas nuevas tags aca
-export type DevTag = 'Web' | 'Mobile' | 'Other';
+export type DevTag = 'Web' | 'Mobile' | 'VideoGame'| 'Other';
 //Y aca
 export type SkillTag = 'NestJS'
     | 'ExpressJS'
     | 'NodeJS'
+    | 'MySQL'
     | 'PostgreSQL'
     | 'Prisma'
     | 'Knex'
@@ -28,8 +29,11 @@ export type SkillTag = 'NestJS'
     | 'JavaScript'
     | 'Kotlin'
     | 'Java'
-    | 'Arduino'
     | 'C++'
+    | 'Python'
+    | 'Arduino'
+    | 'Xtend'
+    | 'Godot'
 
 export interface RepoInfo {
     url: string,

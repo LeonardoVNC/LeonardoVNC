@@ -4,6 +4,7 @@ const skillBadgeUrls: Record<SkillTag, string> = {
     NestJS: "https://img.shields.io/badge/Nest.js-%23E0234E.svg?style=for-the-badge&logo=nestjs&logoColor=white",
     ExpressJS: "https://img.shields.io/badge/Express.js-%23000000.svg?style=for-the-badge&logo=express&logoColor=%234479A1",
     NodeJS: "https://img.shields.io/badge/node.js-%235FA04E.svg?style=for-the-badge&logo=node.js&logoColor=white",
+    MySQL: "https://img.shields.io/badge/MySQL-white.svg?style=for-the-badge&logo=mysql&logoColor=#4479A1",
     PostgreSQL: "https://img.shields.io/badge/Postgre_SQL-%234169E1.svg?style=for-the-badge&logo=postgresql&logoColor=white",
     Prisma: "https://img.shields.io/badge/Prisma-%232D3748.svg?style=for-the-badge&logo=prisma&logoColor=white",
     Knex: "https://img.shields.io/badge/Knex-%23D26B38.svg?style=for-the-badge&logo=knex.js&logoColor=white",
@@ -20,6 +21,9 @@ const skillBadgeUrls: Record<SkillTag, string> = {
     Java: "https://img.shields.io/badge/Java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=black",
     Arduino: "https://img.shields.io/badge/Arduino-%2300878F.svg?style=for-the-badge&logo=arduino&logoColor=white",
     "C++": "https://img.shields.io/badge/C++-%2300599C.svg?style=for-the-badge&logo=cplusplus&logoColor=white",
+    Python: "https://img.shields.io/badge/Python-%233776AB.svg?style=for-the-badge&logo=python&logoColor=white",
+    Xtend: "https://img.shields.io/badge/Xtend-100000?style=for-the-badge",
+    Godot: "https://img.shields.io/badge/Godot_Engine-%23478CBF.svg?style=for-the-badge&logo=godotengine&logoColor=white"
 } as const;
 
 const SkillTagFactory = ({ tag }: { tag: SkillTag }) => {
