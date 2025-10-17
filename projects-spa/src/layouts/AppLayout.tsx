@@ -62,46 +62,50 @@ export default function AppLayout() {
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      <Sider
-        width={SIDER_WIDTH}
-        collapsedWidth={SIDER_COLLAPSED_WIDTH}
-        collapsible
-        collapsed={collapsed}
-        onCollapse={setCollapsed}
-        trigger={triggerIcon}
-        style={{
-          position: "fixed",
-          left: 0,
-          top: 0,
-          bottom: 0,
-          height: "100vh",
-          padding: "16px 0",
-          background: "var(--ant-colorBgContainer)",
-          borderRight: "1px solid var(--ant-colorBorder)",
-          boxShadow: "2px 0 4px rgba(0, 0, 0, 0.1)",
-        }}
-      >
-        <ProfileInfo
-          photoURL={avatar}
-          name={name}
+      {!isMobile && (
+        <Sider
+          width={SIDER_WIDTH}
+          collapsedWidth={SIDER_COLLAPSED_WIDTH}
+          collapsible
           collapsed={collapsed}
-        />
-
-        <Divider style={{ margin: "0 16px 16px 0" }} />
-
-        <Menu
-          mode="inline"
-          selectedKeys={[selectedKey]}
-          items={navItems}
-          className="px-3"
+          onCollapse={setCollapsed}
+          trigger={triggerIcon}
           style={{
-            borderInlineEnd: 0,
-            flex: 1,
-            background: "transparent",
-            color: "var(--ant-colorText)",
+            position: "fixed",
+            left: 0,
+            top: 0,
+            bottom: 0,
+            height: "100vh",
+            padding: "16px 0",
+            background: "var(--ant-colorBgContainer)",
+            borderRight: "1px solid var(--ant-colorBorder)",
+            boxShadow: "2px 0 4px rgba(0, 0, 0, 0.1)",
+            overflow: "hidden",
+            zIndex: 2
           }}
-        />
-      </Sider>
+        >
+          <ProfileInfo
+            photoURL={avatar}
+            name={name}
+            collapsed={collapsed}
+          />
+
+          <Divider style={{ margin: "0 16px 16px 0" }} />
+
+          <Menu
+            mode="inline"
+            selectedKeys={[selectedKey]}
+            items={navItems}
+            className="px-3"
+            style={{
+              borderInlineEnd: 0,
+              flex: 1,
+              background: "transparent",
+              color: "var(--ant-colorText)",
+            }}
+          />
+        </Sider>
+      )}
 
       <Layout
         className="flex flex-col min-h-0"
@@ -120,6 +124,31 @@ export default function AppLayout() {
           <Outlet />
         </Content>
       </Layout>
+
+      {isMobile && (
+        <div
+          style={{
+            position: "fixed",
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 3,
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <Menu
+            mode="horizontal"
+            selectedKeys={[selectedKey]}
+            items={navItems}
+            style={{
+              width: "100%",
+              border: "none",
+              background: "#0d1117"
+            }}
+          />
+        </div>
+      )}
     </Layout>
   );
 }
