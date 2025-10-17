@@ -1,4 +1,4 @@
-import { Divider, Layout, Menu } from "antd";
+import { Divider, Layout, Menu, Grid } from "antd";
 import { FolderOpenOutlined, HomeOutlined, MenuFoldOutlined, MenuOutlined } from "@ant-design/icons";
 import { useState, useMemo, useEffect } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
@@ -6,6 +6,7 @@ import ProfileInfo from "../components/ProfileInfo";
 import useProfileInfo from "../hooks/useProfileInfo";
 
 const { Sider, Content } = Layout;
+const { useBreakpoint } = Grid;
 
 const navItems = [
   {
@@ -26,6 +27,9 @@ export default function AppLayout() {
   const [avatar, setAvatar] = useState("")
   const { pathname } = useLocation();
   const { getName, getAvatar } = useProfileInfo();
+
+  const screens = useBreakpoint();
+  const isMobile = !screens?.md; //TODO mover el menú abajo si es mobile
 
   const selectedKey = useMemo(() => {
     const match = navItems.find((i) =>
@@ -53,16 +57,24 @@ export default function AppLayout() {
     loadInfo();
   }, [])
 
+  const SIDER_WIDTH = 250;
+  const SIDER_COLLAPSED_WIDTH = 96;
+
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Sider
-        width={250}
-        collapsedWidth={96}
+        width={SIDER_WIDTH}
+        collapsedWidth={SIDER_COLLAPSED_WIDTH}
         collapsible
         collapsed={collapsed}
         onCollapse={setCollapsed}
         trigger={triggerIcon}
         style={{
+          position: "fixed",
+          left: 0,
+          top: 0,
+          bottom: 0,
+          height: "100vh",
           padding: "16px 0",
           background: "var(--ant-colorBgContainer)",
           borderRight: "1px solid var(--ant-colorBorder)",
@@ -85,14 +97,26 @@ export default function AppLayout() {
           style={{
             borderInlineEnd: 0,
             flex: 1,
-            overflowY: "auto",
             background: "transparent",
             color: "var(--ant-colorText)",
           }}
         />
       </Sider>
-      <Layout className="flex flex-col min-h-0">
-        <Content>
+
+      <Layout
+        className="flex flex-col min-h-0"
+        style={{
+          marginLeft: isMobile ? 0 : (collapsed ? SIDER_COLLAPSED_WIDTH : SIDER_WIDTH),
+          minHeight: "100vh",
+        }}
+      >
+        <Content
+          style={{
+            boxSizing: "border-box",
+            height: "100vh",
+            overflowY: "auto"
+          }}
+        >
           <Outlet />
         </Content>
       </Layout>
