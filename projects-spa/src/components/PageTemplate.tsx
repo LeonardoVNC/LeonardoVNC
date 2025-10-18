@@ -1,5 +1,6 @@
 import { type ReactNode } from "react";
 import { Typography, Layout } from "antd";
+import useThemeStore from "../store/useThemeStore";
 
 const { Header, Content } = Layout;
 const { Title, Text } = Typography;
@@ -11,12 +12,13 @@ type TemplateProps = {
 };
 
 export default function PageTemplate({ title, subtitle, children }: TemplateProps) {
+    const {palette} = useThemeStore();
     return (
         <Layout className="min-h-screen">
             <Header 
                 style={{ 
-                    backgroundColor: '#0d1117',
-                    color: '#ffffff',
+                    backgroundColor: palette.P0,
+                    color: 'var(--app-colorText)',
                     height: '138px',
                     minHeight: '80px'
                 }}
