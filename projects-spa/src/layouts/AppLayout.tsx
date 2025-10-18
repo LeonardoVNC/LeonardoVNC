@@ -1,4 +1,4 @@
-import { Divider, Layout, Menu, Grid } from "antd";
+import { Divider, Layout, Menu, Grid, Tooltip, Button } from "antd";  // Agrega Tooltip y Button
 import { FolderOpenOutlined, HomeOutlined, MenuFoldOutlined, MenuOutlined, MoonOutlined, SunOutlined } from "@ant-design/icons";
 import { useState, useMemo, useEffect } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
@@ -23,15 +23,16 @@ const navItems = [
 ];
 
 export default function AppLayout() {
-  const [collapsed, setCollapsed] = useState(false);
-  const [name, setName] = useState("")
-  const [avatar, setAvatar] = useState("")
   const { pathname } = useLocation();
   const { getName, getAvatar } = useProfileInfo();
   const { theme, setTheme, palette } = useThemeStore();
-
+  const [collapsed, setCollapsed] = useState(false);
+  const [name, setName] = useState("")
+  const [avatar, setAvatar] = useState("")
   const screens = useBreakpoint();
-  const isMobile = !screens?.md; //TODO mover el menú abajo si es mobile
+  const isMobile = !screens?.md;
+  const SIDER_WIDTH = 250;
+  const SIDER_COLLAPSED_WIDTH = 96;
 
   const selectedKey = useMemo(() => {
     const match = navItems.find((i) =>
@@ -39,16 +40,6 @@ export default function AppLayout() {
     );
     return match?.key ?? "/";
   }, [pathname]);
-
-  const triggerIcon = (
-    <>
-      {collapsed ? (
-        <MenuOutlined style={{ fontSize: 24, color: "var(--app-colorText)" }} />
-      ) : (
-        <MenuFoldOutlined style={{ fontSize: 24, color: "var(--app-colorText)" }} />
-      )}
-    </>
-  );
 
   const loadInfo = () => {
     setName(getName());
@@ -59,8 +50,39 @@ export default function AppLayout() {
     loadInfo();
   }, [])
 
-  const SIDER_WIDTH = 250;
-  const SIDER_COLLAPSED_WIDTH = 96;
+  const ThemeSelector = useMemo(() => {
+    return (
+      <Button
+        type="text"
+        icon={theme === "light" ? <MoonOutlined /> : <SunOutlined />}
+        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+        style={{
+          background: "transparent",
+          border: "none",
+          cursor: "pointer",
+          fontSize: "20px",
+        }}
+        aria-label="Toggle theme"
+      />
+    )
+  }, [theme])
+
+  const MenuTrigger = useMemo(() => {
+    return (
+      <Button
+        type="text"
+        icon={collapsed ? <MenuOutlined /> : <MenuFoldOutlined />}
+        onClick={() => setCollapsed(!collapsed)}
+        style={{
+          background: "transparent",
+          border: "none",
+          cursor: "pointer",
+          fontSize: "20px",
+        }}
+        aria-label="Toggle menu"
+      />
+    )
+  }, [collapsed])
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
@@ -71,7 +93,7 @@ export default function AppLayout() {
           collapsible
           collapsed={collapsed}
           onCollapse={setCollapsed}
-          trigger={triggerIcon}
+          trigger={null}
           style={{
             position: "fixed",
             left: 0,
@@ -86,41 +108,42 @@ export default function AppLayout() {
             zIndex: 2,
           }}
         >
-          {/* Revisa mejor como acomodarlo en ambos layouts dx, quizá hasta con useMemo */}
-          <div>
-            <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
-              <button
-                onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-                className="p-1 rounded-full"
-                style={{
-                  background: "transparent",
-                  border: "none",
-                  cursor: "pointer",
-                }}
-                aria-label="Toggle theme"
-                title="Toggle theme"
-              >
-                {theme === "light" ? <MoonOutlined /> : <SunOutlined />}
-              </button>
+          <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+            <ProfileInfo photoURL={avatar} name={name} collapsed={collapsed} />
+
+            <Divider style={{ margin: "0 16px 16px 0" }} />
+
+            <Menu
+              mode="inline"
+              selectedKeys={[selectedKey]}
+              items={navItems}
+              className="px-3"
+              style={{
+                borderInlineEnd: 0,
+                flex: 1,
+                background: "transparent",
+                color: "var(--app-colorText)",
+              }}
+            />
+
+            <Divider style={{ margin: "0 8px 8px 0" }} />
+
+            <div style={{
+              display: 'flex',
+              flexDirection: collapsed ? 'column' : 'row',
+              justifyContent: collapsed ? 'center' : 'space-around',
+              alignItems: 'center',
+              padding: '10px',
+              gap: collapsed ? '8px' : '0',
+            }}>
+              <Tooltip title={`Enable ${theme === "light" ? "dark" : "light"} theme`}>
+                {ThemeSelector}
+              </Tooltip>
+              <Tooltip title={collapsed ? "Open menu" : "Close menu"}>
+                {MenuTrigger}
+              </Tooltip>
             </div>
           </div>
-
-          <ProfileInfo photoURL={avatar} name={name} collapsed={collapsed} />
-
-          <Divider style={{ margin: "0 16px 16px 0" }} />
-
-          <Menu
-            mode="inline"
-            selectedKeys={[selectedKey]}
-            items={navItems}
-            className="px-3"
-            style={{
-              borderInlineEnd: 0,
-              flex: 1,
-              background: "transparent",
-              color: "var(--app-colorText)",
-            }}
-          />
         </Sider>
       )}
 
