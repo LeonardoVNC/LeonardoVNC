@@ -1,9 +1,10 @@
 import { Divider, Layout, Menu, Grid } from "antd";
-import { FolderOpenOutlined, HomeOutlined, MenuFoldOutlined, MenuOutlined } from "@ant-design/icons";
+import { FolderOpenOutlined, HomeOutlined, MenuFoldOutlined, MenuOutlined, MoonOutlined, SunOutlined } from "@ant-design/icons";
 import { useState, useMemo, useEffect } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import ProfileInfo from "../components/ProfileInfo";
 import useProfileInfo from "../hooks/useProfileInfo";
+import useThemeStore from "../store/useThemeStore";
 
 const { Sider, Content } = Layout;
 const { useBreakpoint } = Grid;
@@ -27,6 +28,7 @@ export default function AppLayout() {
   const [avatar, setAvatar] = useState("")
   const { pathname } = useLocation();
   const { getName, getAvatar } = useProfileInfo();
+  const { theme, setTheme, palette } = useThemeStore();
 
   const screens = useBreakpoint();
   const isMobile = !screens?.md; //TODO mover el menú abajo si es mobile
@@ -41,9 +43,9 @@ export default function AppLayout() {
   const triggerIcon = (
     <>
       {collapsed ? (
-        <MenuOutlined style={{ fontSize: 24, color: "var(--ant-colorText)" }} />
+        <MenuOutlined style={{ fontSize: 24, color: "var(--app-colorText)" }} />
       ) : (
-        <MenuFoldOutlined style={{ fontSize: 24, color: "var(--ant-colorText)" }} />
+        <MenuFoldOutlined style={{ fontSize: 24, color: "var(--app-colorText)" }} />
       )}
     </>
   );
@@ -77,18 +79,33 @@ export default function AppLayout() {
             bottom: 0,
             height: "100vh",
             padding: "16px 0",
-            background: "var(--ant-colorBgContainer)",
-            borderRight: "1px solid var(--ant-colorBorder)",
+            background: "var(--app-colorBgContainer)",
+            borderRight: "1px solid var(--app-colorBorder)",
             boxShadow: "2px 0 4px rgba(0, 0, 0, 0.1)",
             overflow: "hidden",
-            zIndex: 2
+            zIndex: 2,
           }}
         >
-          <ProfileInfo
-            photoURL={avatar}
-            name={name}
-            collapsed={collapsed}
-          />
+          {/* Revisa mejor como acomodarlo en ambos layouts dx, quizá hasta con useMemo */}
+          <div>
+            <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+              <button
+                onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+                className="p-1 rounded-full"
+                style={{
+                  background: "transparent",
+                  border: "none",
+                  cursor: "pointer",
+                }}
+                aria-label="Toggle theme"
+                title="Toggle theme"
+              >
+                {theme === "light" ? <MoonOutlined /> : <SunOutlined />}
+              </button>
+            </div>
+          </div>
+
+          <ProfileInfo photoURL={avatar} name={name} collapsed={collapsed} />
 
           <Divider style={{ margin: "0 16px 16px 0" }} />
 
@@ -101,7 +118,7 @@ export default function AppLayout() {
               borderInlineEnd: 0,
               flex: 1,
               background: "transparent",
-              color: "var(--ant-colorText)",
+              color: "var(--app-colorText)",
             }}
           />
         </Sider>
@@ -143,8 +160,7 @@ export default function AppLayout() {
             items={navItems}
             style={{
               width: "100%",
-              border: "none",
-              background: "#0d1117"
+              // background: palette.P0
             }}
           />
         </div>

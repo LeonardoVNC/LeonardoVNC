@@ -1,7 +1,7 @@
 import type { ThemeConfig } from "antd";
 import { theme as antdTheme } from "antd";
 
-export const palette = {
+export const darkPalette = {
   P0: "#0d1117",
   P1: "#161b22",
   P2: "#21262d",
@@ -19,8 +19,8 @@ export const palette = {
   neutral900: "#0d1117",
   successLight: "#238636",
   successAntd: "#238636",
-  warningLight: "#d29922", 
-  infoLight: "#58a6ff", 
+  warningLight: "#d29922",
+  infoLight: "#58a6ff",
   errorLight: "#da3633",
   darkPrimary: "#58a6ff",
   darkText: "#f0f6fc",
@@ -86,3 +86,96 @@ export const darkTheme: ThemeConfig = {
     },
   },
 };
+
+export const lightPalette = {
+  P0: "#ffffff",
+  P1: "#f7fafc",
+  P2: "#f0f6fb",
+  P3: "#e6edf3",
+  white: "#0b1220",
+  neutral50: "#0b1220",
+  neutral100: "#1b2a37",
+  neutral200: "#2b3b4a",
+  neutral300: "#566c83",
+  neutral400: "#7b93a9",
+  neutral500: "#98a9bf",
+  neutral600: "#cde4ff",
+  neutral700: "#eaf6ff",
+  neutral800: "#f8fcff",
+  neutral900: "#ffffff",
+  successLight: "#237a3e",
+  warningLight: "#b37a00",
+  infoLight: "#096dd9",
+  errorLight: "#a61d24",
+  darkPrimary: "#096dd9",
+  darkText: "#0b1220",
+  darkTextSecondary: "#566c83",
+  green: "#237a3e",
+  red: "#a61d24",
+  blue: "#096dd9",
+  lightBlue: "#dbeeff",
+};
+
+export const lightTheme: ThemeConfig = {
+  algorithm: [antdTheme.defaultAlgorithm],
+  token: {
+    lineWidth: borderWidth,
+    colorPrimary: "#096dd9",
+    colorInfo: "#096dd9",
+    colorSuccess: "#237a3e",
+    colorWarning: "#b37a00",
+    colorError: "#a61d24",
+    fontFamily: "Inter, sans-serif",
+    borderRadius: 12,
+    colorBgBase: "#ffffff",
+    colorBgLayout: "#f7fafc",
+    colorBgContainer: "#ffffff",
+    colorBgElevated: "#f0f6fb",
+    colorBorder: "#e6edf3",
+    colorText: "#0b1220",
+    colorTextPlaceholder: "#7b93a9",
+    colorTextSecondary: "#566c83",
+    colorLink: "#096dd9",
+    colorLinkHover: "#58a6ff",
+    colorFill: "#ffffff",
+    colorFillSecondary: "#f0f6fb",
+    colorTextDisabled: "#98a9bf",
+  },
+  components: {
+    Button: {
+      colorPrimary: "#096dd9",
+      colorPrimaryHover: "#2b6fd6",
+      colorPrimaryActive: "#093ea6",
+      primaryShadow: "none",
+      controlHeight: 40,
+      controlHeightLG: 44,
+      borderRadius: 12,
+    },
+    Card: {
+      borderRadiusLG: 12,
+      colorBorder: "#e6edf3",
+      colorBgContainer: "#ffffff",
+    },
+    Input: {
+      controlHeight: 40,
+      colorBorder: "#e6edf3",
+      colorBgContainer: "#f7fafc",
+      colorTextPlaceholder: "#7b93a9",
+    },
+    Tag: {
+      defaultBg: "#f7fafc",
+      defaultColor: "#0b1220",
+      colorBorder: "#e6edf3",
+    },
+  },
+};
+
+export type ThemeName = "light" | "dark";
+
+export function getThemeConfig(name: ThemeName): ThemeConfig {
+  return name === "dark" ? darkTheme : lightTheme;
+}
+
+export function getPalette(name: ThemeName) {
+  return name === "dark" ? darkPalette : lightPalette;
+}
