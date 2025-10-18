@@ -136,10 +136,10 @@ export default function AppLayout() {
               padding: '10px',
               gap: collapsed ? '8px' : '0',
             }}>
-              <Tooltip title={`Enable ${theme === "light" ? "dark" : "light"} theme`}>
+              <Tooltip key={`theme-${collapsed}`} title={`Enable ${theme === "light" ? "dark" : "light"} theme`}>
                 {ThemeSelector}
               </Tooltip>
-              <Tooltip title={collapsed ? "Open menu" : "Close menu"}>
+              <Tooltip key={`menu-trigger-${collapsed}`} title={collapsed ? "Open menu" : "Close menu"}>
                 {MenuTrigger}
               </Tooltip>
             </div>
