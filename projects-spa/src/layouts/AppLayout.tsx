@@ -33,6 +33,7 @@ export default function AppLayout() {
   const isMobile = !screens?.md;
   const SIDER_WIDTH = 250;
   const SIDER_COLLAPSED_WIDTH = 96;
+  const BOTTOM_MENU_H = 80;
 
   const navigate = useNavigate();
 
@@ -160,7 +161,8 @@ export default function AppLayout() {
           style={{
             boxSizing: "border-box",
             height: "100vh",
-            overflowY: "auto"
+            overflowY: "auto",
+            paddingBottom: isMobile ? BOTTOM_MENU_H : 0,
           }}
         >
           <Outlet />
@@ -178,7 +180,8 @@ export default function AppLayout() {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-around",
-            background: palette.P0
+            background: palette.P0,
+            height: BOTTOM_MENU_H,
           }}
         >
           {navItems.map((item) => (
