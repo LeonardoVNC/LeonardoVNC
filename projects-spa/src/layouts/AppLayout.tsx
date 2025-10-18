@@ -1,7 +1,7 @@
-import { Divider, Layout, Menu, Grid, Tooltip, Button } from "antd";  // Agrega Tooltip y Button
+import { Divider, Layout, Menu, Grid, Tooltip, Button } from "antd";
 import { FolderOpenOutlined, HomeOutlined, MenuFoldOutlined, MenuOutlined, MoonOutlined, SunOutlined } from "@ant-design/icons";
 import { useState, useMemo, useEffect } from "react";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import ProfileInfo from "../components/ProfileInfo";
 import useProfileInfo from "../hooks/useProfileInfo";
 import useThemeStore from "../store/useThemeStore";
@@ -25,7 +25,7 @@ const navItems = [
 export default function AppLayout() {
   const { pathname } = useLocation();
   const { getName, getAvatar } = useProfileInfo();
-  const { theme, setTheme, palette } = useThemeStore();
+  const { theme, palette, toggleTheme } = useThemeStore();
   const [collapsed, setCollapsed] = useState(false);
   const [name, setName] = useState("")
   const [avatar, setAvatar] = useState("")
@@ -33,6 +33,8 @@ export default function AppLayout() {
   const isMobile = !screens?.md;
   const SIDER_WIDTH = 250;
   const SIDER_COLLAPSED_WIDTH = 96;
+
+  const navigate = useNavigate();
 
   const selectedKey = useMemo(() => {
     const match = navItems.find((i) =>
@@ -55,7 +57,7 @@ export default function AppLayout() {
       <Button
         type="text"
         icon={theme === "light" ? <MoonOutlined /> : <SunOutlined />}
-        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+        onClick={toggleTheme}
         style={{
           background: "transparent",
           border: "none",
@@ -175,17 +177,46 @@ export default function AppLayout() {
             zIndex: 3,
             display: "flex",
             alignItems: "center",
+            justifyContent: "space-around",
+            background: palette.P0
           }}
         >
-          <Menu
-            mode="horizontal"
-            selectedKeys={[selectedKey]}
-            items={navItems}
-            style={{
-              width: "100%",
-              // background: palette.P0
-            }}
-          />
+          {navItems.map((item) => (
+            <div
+              key={item.key}
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                paddingTop: '4px',
+                paddingBottom: '4px',
+                paddingRight: '12px',
+                paddingLeft: '12px',
+                margin: '4px',
+                cursor: 'pointer',
+                borderRadius: '12px',
+                background: selectedKey === item.key ? palette.P3 : 'transparent',
+                transition: 'background 0.2s',
+              }}
+              onClick={() => {
+                navigate(item.label.props.to)
+              }}
+            >
+              <div style={{ fontSize: '20px', color: 'var(--app-colorText)' }}>
+                {item.icon}
+              </div>
+              <span style={{ fontSize: '12px', color: 'var(--app-colorText)', marginTop: '4px' }}>
+                {item.label.props.children}
+              </span>
+            </div>
+          ))}
+
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            {ThemeSelector}
+            <span style={{ fontSize: '12px', color: 'var(--app-colorText)', marginTop: '4px' }}>
+              Toogle Theme
+            </span>
+          </div>
         </div>
       )}
     </Layout>
