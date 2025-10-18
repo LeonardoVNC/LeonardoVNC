@@ -12,30 +12,61 @@ type TemplateProps = {
 };
 
 export default function PageTemplate({ title, subtitle, children }: TemplateProps) {
-    const {palette} = useThemeStore();
+    const { palette } = useThemeStore();
+
     return (
-        <Layout className="min-h-screen">
-            <Header 
-                style={{ 
+        <Layout style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+            <Header
+                style={{
                     backgroundColor: palette.P0,
                     color: 'var(--app-colorText)',
-                    height: '138px',
-                    minHeight: '80px'
+                    height: '120px',
+                    minHeight: '80px',
+                    padding: 12,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                 }}
             >
-                <div className="w-full max-w-7xl mx-auto text-center flex flex-col items-center justify-center h-full">
-                    <Title 
-                        level={1} 
-                        className="leading-tight text-xl md:text-2xl m-0 mb-0.5"
-                        style={{ color: 'inherit' }}
+                <div
+                    style={{
+                        width: '100%',
+                        margin: '0 auto',
+                        textAlign: 'center',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: 6,
+                    }}
+                >
+                    <Title
+                        level={1}
+                        style={{
+                            color: 'inherit',
+                            margin: 0,
+                            fontSize: 'clamp(20px, 3.5vw, 36px)',
+                            textOverflow: 'unset',
+                            whiteSpace: 'normal',
+                            wordBreak: 'break-word',
+                            width: '100%',
+                        }}
                     >
                         {title}
                     </Title>
+
                     {subtitle && (
-                        <Text 
-                            type="secondary" 
-                            className="block text-sm md:text-base mt-0"
-                            style={{ color: '#8b949e' }}
+                        <Text
+                            type="secondary"
+                            style={{
+                                color: '#8b949e',
+                                fontSize: 'clamp(12px, 2vw, 16px)',
+                                textOverflow: 'unset',
+                                whiteSpace: 'normal',
+                                wordBreak: 'break-word',
+                                marginTop: 4,
+                                marginBottom: 4,
+                            }}
                         >
                             {subtitle}
                         </Text>
@@ -43,7 +74,7 @@ export default function PageTemplate({ title, subtitle, children }: TemplateProp
                 </div>
             </Header>
 
-            <Content className="flex-1 min-h-0 overflow-auto p-4 md:p-6">
+            <Content style={{ flex: 1, minHeight: 0, overflow: 'auto', padding: 12, marginBottom: 4 }}>
                 {children}
             </Content>
         </Layout>
