@@ -7,9 +7,10 @@ type ProfileInfoProps = {
     collapsed?: boolean,
     imgSize?: number,
     fontSize?: number,
+    onPress?: () => void,
 }
 
-const ProfileInfo = ({ photoURL, name, collapsed, imgSize = 64, fontSize = 16 }: ProfileInfoProps) => {
+const ProfileInfo = ({ photoURL, name, collapsed, imgSize = 64, fontSize = 16, onPress }: ProfileInfoProps) => {
     const [isVisible, setIsVisible] = useState(!collapsed);
 
     useEffect(() => {
@@ -38,7 +39,9 @@ const ProfileInfo = ({ photoURL, name, collapsed, imgSize = 64, fontSize = 16 }:
                 style={{
                     background: "var(--ant-colorBorder)",
                     border: "1px solid var(--ant-colorBorder)",
+                    cursor: onPress? "pointer" : ""
                 }}
+                onClick={onPress}
             />
             <Typography.Text
                 style={{

@@ -24,11 +24,13 @@ const navItems = [
 
 export default function AppLayout() {
   const { pathname } = useLocation();
-  const { getName, getAvatar } = useProfileInfo();
+  const { getName, getAvatar, getGitHub } = useProfileInfo();
   const { theme, palette, toggleTheme } = useThemeStore();
   const [collapsed, setCollapsed] = useState(false);
   const [name, setName] = useState("")
   const [avatar, setAvatar] = useState("")
+  const [github, setGithub] = useState("")
+
   const screens = useBreakpoint();
   const isMobile = !screens?.md;
   const SIDER_WIDTH = 250;
@@ -47,6 +49,10 @@ export default function AppLayout() {
   const loadInfo = () => {
     setName(getName());
     setAvatar(getAvatar());
+
+    const githubURL = getGitHub();
+    if (!githubURL) return
+    setGithub(githubURL);
   }
 
   useEffect(() => {
@@ -88,6 +94,11 @@ export default function AppLayout() {
     )
   }, [collapsed])
 
+  const handleAvatarNav = () => {
+    if (!github) return
+    window.open(github, '_blank', 'noopener,noreferrer');
+  }
+
   return (
     <Layout style={{ minHeight: "100vh" }}>
       {!isMobile && (
@@ -106,14 +117,18 @@ export default function AppLayout() {
             height: "100vh",
             padding: "16px 0",
             background: "var(--app-colorBgContainer)",
-            borderRight: "1px solid var(--app-colorBorder)",
-            boxShadow: "2px 0 4px rgba(0, 0, 0, 0.1)",
+            boxShadow: "4px 0 4px rgba(0, 0, 0, 0.1)",
             overflow: "hidden",
             zIndex: 2,
           }}
         >
           <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-            <ProfileInfo photoURL={avatar} name={name} collapsed={collapsed} />
+            <ProfileInfo
+              photoURL={avatar}
+              name={name}
+              collapsed={collapsed}
+              onPress={handleAvatarNav}
+            />
 
             <Divider style={{ margin: "0 16px 16px 0" }} />
 
