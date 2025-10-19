@@ -12,6 +12,7 @@ function validateProject(raw: any): raw is Project {
     if (
         typeof raw.title === 'string' &&
         Array.isArray(raw.descriptionPar) &&
+        raw.priority >= 0 &&
         Array.isArray(raw.devTag) &&
         raw.devTag.every((tag: string) => validDevTags.has(tag as DevTag)) &&
         Array.isArray(raw.skills) &&

@@ -2,6 +2,7 @@
     {
         "id" : "arduino",
         "title": "Basic course - Arduino",
+        "priority": 3,
         "descriptionPar": [
             "As an Arduino enthusiast and vice-president at the RAS chapter of the IEEE branch of my university, I developed a quick course on Arduino, in which the basics of programming in this language and the necessary connections to make everything work on a breadboard are taught.",
             "I achieved this with the support of the Arduino IDE and tools such as TinkerCad to show the connections. I have taught this course in person on 3 occasions to first and second year students at my university."
@@ -28,6 +29,7 @@
     {
         "id" : "quitify",
         "title": "Control of addictions Android App",
+        "priority": 2,
         "descriptionPar": [
             "I led a small development group in the creation of an Android application aimed at the control and management of addictions.",
             "The application seeks to encourage and help the user to leave behind various addictions with tools that motivate them to avoid relapses and congratulate each small step on their road to recovery."
@@ -53,6 +55,7 @@
     {
         "id" : "skylink",
         "title": "Route Optimization App - Dijkstra Algorithm",
+        "priority": 1,
         "descriptionPar": [
             "I developed an Android application to calculate routes and prices of the La Paz-El Alto Cable Car, reducing searches and calculations from several minutes to a single operation carried out in a few seconds.",
             "The app uses Java for the implementation of the Dijkstra Algorithm and communicates with Kotlin for the presentation of the data in Android Activities. These results are presented with a user-friendly interface, this interface was gradually improved with recommendations that I received from acquaintances who tried the app.",
@@ -83,6 +86,7 @@
     {
         "id" : "e-commerce",
         "title": "Basic E-Commerce",
+        "priority": 3,
         "descriptionPar": [
             "I worked within a small development team in which we created a small general-purpose E-Commerce. Within the project, Design Patterns were used to improve the use of certain functionalities within the application.",
             "Sadly, I've lost access to the data base on Mongo Atlas, as a result, I can't take more images of the project working."
@@ -110,6 +114,7 @@
     {
         "id" : "upb-system",
         "title": "Academic Process system page",
+        "priority": 2,
         "descriptionPar": [
             "I am currently contributing to the development of a website aimed at the optimization and automation of academic processes within my University. This page is in charge of managing the registration of students and interns, registers teachers and organizes graduation processes, allowing the creation of new processes and updating the information of the processes that are in progress",
             "We employ the Scrum methodology and split into multiple development teams to separate the work and roles of each team. I have worked in QA and in the development of Frontend and Backend."
@@ -145,6 +150,7 @@
     {
         "id" : "mini-crud",
         "title": "Mini CRUD app",
+        "priority": 3,
         "descriptionPar": [
             "Trying to solve my low knowledge in the use of REST APIs and as a way to practice my use of MongoDB, I worked on a small project oriented to the managing of CRUD operations.",
             "The project is quite small, but at the time it helped me understand the basics of REST APIs and remember how to use MongoDB."
@@ -167,6 +173,7 @@
     {
         "id" : "chaotic-dsl",
         "title": "My own programming language",
+        "priority": 3,
         "descriptionPar": [
             "Chaotic is an esoteric programming language inspired by Discord, an instant messaging app, with the implementation of procedures, data types, arrays, and throwing exceptions.",
             "It is a Turing Complete programming language, it is procedural, uses global variables and compiles to Java, so it can be run on a Java Virtual Machine."
@@ -192,6 +199,7 @@
     {
         "id" : "angry-clone",
         "title": "Angry Birds - basic clone",
+        "priority": 4,
         "descriptionPar": [
             "I developed a small clone of Angry Birds, the video game, using Python's Arcade library.",
             "This project is quite small, but it includes a difficulty selector, implementation of several of the birds available in the original game, collision and scoring management."
@@ -216,6 +224,7 @@
     {
         "id" : "candy-clone",
         "title": "Candy crush - basic clone",
+        "priority": 4,
         "descriptionPar": [
             "I developed a small clone of the Candy Crush video game. This clone was developed with Godot Engine and includes the core mechanics of the original game, such as the creation of special tiles by destroying 4 or 5 tiles with a single move, as well as implementing a special tile when creating L or T formations.",
             "There are two main game modes, one with a turn limit and the other with a time limit."
@@ -239,6 +248,7 @@
     {
         "id" : "undertale-simulator",
         "title": "Undertale - Battle Simulator",
+        "priority": 3,
         "descriptionPar": [
             "I developed a simulator of the final battle in the video game Undertale. This simulator was developed with Godot Engine as the main tool. The project's assets are mostly obtained from the internet, but I redrawn some to adapt their size to the one used in the project.",
             "The project focuses on simulating the game's final battle, applying the mechanics of attack generation, turn management, implementation of player actions, and loading combat dialogues."
@@ -262,6 +272,7 @@
     {
         "id" : "learning-agent",
         "title": "Academic Management page supported with AI",
+        "priority": 0,
         "descriptionPar": [
             "I led one of four development teams in the creation of a website for managing subjects and classes, creating exams for teachers, interview simulations, and providing study support for students. This was supported by APIs from various AIs to synthesize information from the system and process it into products that users could consume, such as generated exams or quizzes tailored to a specific topic.",
             "I was also responsible for leading all devs responsible for the system's backend, verifying compliance with best practices, the correct application of Hexagonal Architecture, reviewing pull requests in the GitHub repository, and constantly monitoring the project's proper functioning."

@@ -1,6 +1,7 @@
 export interface Project {
     id: string,
     title: string,
+    priority: number,
     descriptionPar: string[],
     devTag: DevTag[];
     skills: SkillTag[];
