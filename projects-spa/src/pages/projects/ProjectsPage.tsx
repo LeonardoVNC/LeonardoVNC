@@ -1,24 +1,38 @@
+import { useEffect, useState } from "react";
 import PageTemplate from "../../components/PageTemplate";
-import rawProjects from '../../assets/data/projects.json' assert { type: 'json' };
-import type { Project } from "../../interfaces/Project";
-import { getProjects } from "../../helpers/validateProjects";
 import ProjectList from "../../components/projects/ProjectList";
 import useProjects from "../../hooks/useProjects";
+import { Spin, Typography } from "antd";
 
 const ProjectsPage = () => {
-    // const projectList: Project[] = getProjects(rawProjects);
     const { projectList } = useProjects();
-    
-    if (projectList.length < rawProjects.length) {
-        console.warn('Algunos proyectos fueron filtrados por tags inválidos, verifica la estructura');
-    }
+    const [loading, setLoading] = useState(true)
+    const { Text } = Typography;
+
+    useEffect(() => {
+        setLoading(projectList.length == 0)
+    }, [projectList])
 
     return (
         <PageTemplate
             title="Projects"
             subtitle="Take a look at the projects I've worked on."
         >
-            <ProjectList projects={projectList}/>
+            {loading ? (
+                <>
+                    <div
+                        className="flex justify-center"
+                        style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}
+                    >
+                        <Spin />
+                        <Text>
+                            Please wait
+                        </Text>
+                    </div>
+                </>
+            ) : (
+                <ProjectList projects={projectList} />
+            )}
         </PageTemplate>
     );
 };
