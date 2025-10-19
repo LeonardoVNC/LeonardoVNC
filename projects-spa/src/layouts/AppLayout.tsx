@@ -64,11 +64,12 @@ export default function AppLayout() {
           border: "none",
           cursor: "pointer",
           fontSize: "20px",
+          color: isMobile ? palette.darkTextSecondary : ''
         }}
         aria-label="Toggle theme"
       />
     )
-  }, [theme])
+  }, [theme, isMobile])
 
   const MenuTrigger = useMemo(() => {
     return (
@@ -216,8 +217,8 @@ export default function AppLayout() {
 
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             {ThemeSelector}
-            <span style={{ fontSize: '12px', color: 'var(--app-colorText)', marginTop: '4px' }}>
-              Toogle Theme
+            <span style={{ fontSize: '12px', color: palette.darkTextSecondary, marginTop: '4px' }}>
+              Toggle Theme
             </span>
           </div>
         </div>
