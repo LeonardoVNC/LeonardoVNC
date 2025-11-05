@@ -2,10 +2,10 @@ import type { Project, DevTag, SkillTag } from '../interfaces/Project';
 
 const validDevTags: Set<DevTag> = new Set(['Web', 'Mobile', 'VideoGame', 'Other']);
 const validSkillTags: Set<SkillTag> = new Set([
-    'NestJS', 'ExpressJS', 'NodeJS', 'PostgreSQL', 'MySQL', 'Prisma', 'Knex', 
-    'MongoDB', 'Mongoose', 'ReactJS', 'MUI', 'AntDesign', 'Tailwind', 
-    'AndroidStudio', 'TypeScript', 'JavaScript', 'Kotlin', 'Java', 'Arduino', 'C++', 
-    'Python', 'Xtend', 'Godot'
+    'NestJS', 'ExpressJS', 'NodeJS', 'PostgreSQL', 'MySQL', 'Prisma', 'Knex',
+    'MongoDB', 'Mongoose', 'ReactJS', 'MUI', 'AntDesign', 'Tailwind',
+    'AndroidStudio', 'TypeScript', 'JavaScript', 'Kotlin', 'Java', 'Arduino', 'C++',
+    'Python', 'Xtend', 'Godot', 'ReactNative', 'Expo', 'Firebase'
 ]);
 
 function validateProject(raw: any): raw is Project {

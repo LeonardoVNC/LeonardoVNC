@@ -35,6 +35,9 @@ export type SkillTag = 'NestJS'
     | 'Arduino'
     | 'Xtend'
     | 'Godot'
+    | 'ReactNative'
+    | 'Expo'
+    | 'Firebase'
 
 export interface RepoInfo {
     url: string,

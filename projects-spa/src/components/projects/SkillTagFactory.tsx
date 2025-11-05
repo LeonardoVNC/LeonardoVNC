@@ -23,7 +23,10 @@ const skillBadgeUrls: Record<SkillTag, string> = {
     "C++": "https://img.shields.io/badge/C++-%2300599C.svg?style=for-the-badge&logo=cplusplus&logoColor=white",
     Python: "https://img.shields.io/badge/Python-%233776AB.svg?style=for-the-badge&logo=python&logoColor=white",
     Xtend: "https://img.shields.io/badge/Xtend-100000?style=for-the-badge",
-    Godot: "https://img.shields.io/badge/Godot_Engine-%23478CBF.svg?style=for-the-badge&logo=godotengine&logoColor=white"
+    Godot: "https://img.shields.io/badge/Godot_Engine-%23478CBF.svg?style=for-the-badge&logo=godotengine&logoColor=white",
+    ReactNative: "https://img.shields.io/badge/React_Native-black.svg?style=for-the-badge&logo=react&logoColor=#61DAFB",
+    Expo: "https://img.shields.io/badge/Expo-black.svg?style=for-the-badge&logo=expo&logoColor=#1C2024",
+    Firebase: "https://img.shields.io/badge/Firebase-%23DD2C00.svg?style=for-the-badge&logo=firebase&logoColor=white"
 } as const;
 
 const SkillTagFactory = ({ tag }: { tag: SkillTag }) => {
