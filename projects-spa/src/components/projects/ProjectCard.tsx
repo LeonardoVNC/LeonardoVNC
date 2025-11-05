@@ -10,7 +10,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
     const navigate = useNavigate();
 
     const goToProject = () => {
-        navigate(`/projects/${project.id}`)
+        navigate(`${project.id}`)
     }
 
     return (

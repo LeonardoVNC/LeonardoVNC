@@ -9,7 +9,7 @@ const ToProjectSection = () => {
     const navigate = useNavigate();
 
     const goToProjects = () => {
-        navigate('/projects')
+        navigate('projects')
     }
 
     return (

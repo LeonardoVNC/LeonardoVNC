@@ -5,20 +5,21 @@ import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import ProfileInfo from "../components/ProfileInfo";
 import useProfileInfo from "../hooks/useProfileInfo";
 import useThemeStore from "../store/useThemeStore";
+import { mainRoute } from "../routes/routes";
 
 const { Sider, Content } = Layout;
 const { useBreakpoint } = Grid;
 
 const navItems = [
   {
-    key: "/",
+    key: "",
     icon: <HomeOutlined />,
-    label: <Link to="/">Home</Link>
+    label: <Link to="">Home</Link>
   },
   {
-    key: "/projects",
+    key: "projects",
     icon: <FolderOpenOutlined />,
-    label: <Link to="/projects">My Projects</Link>,
+    label: <Link to="projects">My Projects</Link>,
   },
 ];
 
@@ -40,10 +41,16 @@ export default function AppLayout() {
   const navigate = useNavigate();
 
   const selectedKey = useMemo(() => {
-    const match = navItems.find((i) =>
-      i.key === "/" ? pathname === "/" : pathname.startsWith(i.key)
-    );
-    return match?.key ?? "/";
+    const relativePath = pathname.replace(mainRoute, '');
+    
+    const match = navItems.find((item) => {
+      if (item.key === '') {
+        return relativePath === '/' || relativePath === '';
+      }
+      return relativePath.startsWith('/' + item.key);
+    });
+
+    return match?.key ?? '';
   }, [pathname]);
 
   const loadInfo = () => {
