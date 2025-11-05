@@ -300,5 +300,29 @@
             "/images/projects/learning/attendance.png",
             "/images/projects/learning/db.png"
         ]
+    },
+    {
+        "id" : "plans-upb",
+        "title": "Social App for Activities Management",
+        "priority": 1,
+        "descriptionPar": [
+            "Test"
+        ],
+        "devTag": ["Mobile"],
+        "skills": [
+            "ReactNative",
+            "Expo",
+            "Firebase",
+            "TypeScript"
+        ],
+        "repos": [
+            {
+                "url": "https://github.com/LeonardoVNC/PlansUPB-App",
+                "desc": "Project Repository"
+            }
+        ],
+        "imgURL": [
+            "/images/projects/learning/upb.png"
+        ]
     }
 ]
