@@ -306,7 +306,8 @@
         "title": "Social App for Activities Management",
         "priority": 1,
         "descriptionPar": [
-            "Test"
+            "With a small dev team, we created a mobile application aimed at planning, organizing, and publishing various academic and social activities for students at my university.",
+            "The application was developed with React Native, using the Expo framework, implementing services such as Firebase for authentication, Firestore for data saving, Cloudinary for saving multimedia and libraries such as Zustand for global states management."
         ],
         "devTag": ["Mobile"],
         "skills": [
@@ -322,7 +323,15 @@
             }
         ],
         "imgURL": [
-            "/images/projects/learning/upb.png"
+            "/images/projects/plans-upb/upb.png",
+            "/images/projects/plans-upb/1.jpg",
+            "/images/projects/plans-upb/2.jpg",
+            "/images/projects/plans-upb/3.jpg",
+            "/images/projects/plans-upb/4.jpg",
+            "/images/projects/plans-upb/5.jpg",
+            "/images/projects/plans-upb/6.jpg",
+            "/images/projects/plans-upb/7.jpg",
+            "/images/projects/plans-upb/8.jpg"
         ]
     }
 ]
