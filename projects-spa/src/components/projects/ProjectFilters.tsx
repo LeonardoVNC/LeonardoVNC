@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Flex, Input, Select } from "antd";
 import type { DevTag, Project, SkillTag } from "../../interfaces/Project";
 import { getDevTagOptions, getSkillTagOptions } from "../../helpers/projectsHelper";
+import { filterByWords } from "../../helpers/searchText";
 
 interface ProjectFiltersProps {
     projects: Project[]
@@ -27,15 +28,15 @@ function ProjectFilters({ projects, onFilterChange }: ProjectFiltersProps) {
     }
 
     const isProjectOnTextFilter = (project: Project) => {
-        return searchText.length === 0 || project.title === searchText //TODO Helper para el buen filtrado de información
+        return filterByWords(project.title, searchText)
     }
 
     const isProjectOnTypeFilter = (project: Project) => {
-        return typeSelected === null || project.devTag[0] === typeSelected   //TODO usar bien la lista
+        return typeSelected == null || project.devTag.includes(typeSelected)
     }
 
     const isProjectOnSkillFilter = (project: Project) => {
-        return skillSelected === null || project.skills[0] === skillSelected  //TODO usar bien la lista
+        return skillSelected == null || project.skills.includes(skillSelected)
     }
 
     return (
