@@ -4,9 +4,11 @@ import ProjectList from "../../components/projects/ProjectList";
 import useProjects from "../../hooks/useProjects";
 import { Spin, Typography } from "antd";
 import ProjectFilters from "../../components/projects/ProjectFilters";
+import type { Project } from "../../interfaces/Project";
 
 const ProjectsPage = () => {
     const { projectList } = useProjects();
+    const [filteredProjects, setFilteredProjects] = useState<Project[]>([])
     const [loading, setLoading] = useState(true)
     const { Text } = Typography;
 
@@ -33,8 +35,8 @@ const ProjectsPage = () => {
                 </>
             ) : (
                 <>
-                    <ProjectFilters/>
-                    <ProjectList projects={projectList} />
+                    <ProjectFilters projects={projectList} onFilterChange={setFilteredProjects} />
+                    <ProjectList projects={filteredProjects} />
                 </>
             )}
         </PageTemplate>
