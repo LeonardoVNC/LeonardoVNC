@@ -3,6 +3,7 @@ import PageTemplate from "../../components/PageTemplate";
 import ProjectList from "../../components/projects/ProjectList";
 import useProjects from "../../hooks/useProjects";
 import { Spin, Typography } from "antd";
+import ProjectFilters from "../../components/projects/ProjectFilters";
 
 const ProjectsPage = () => {
     const { projectList } = useProjects();
@@ -31,7 +32,10 @@ const ProjectsPage = () => {
                     </div>
                 </>
             ) : (
-                <ProjectList projects={projectList} />
+                <>
+                    <ProjectFilters/>
+                    <ProjectList projects={projectList} />
+                </>
             )}
         </PageTemplate>
     );
