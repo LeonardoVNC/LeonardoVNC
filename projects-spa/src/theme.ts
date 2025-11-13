@@ -77,7 +77,13 @@ export const darkTheme: ThemeConfig = {
       controlHeight: 40,
       colorBorder: "#30363d",
       colorBgContainer: "#161b22",
-      colorTextPlaceholder: "#8b949e",
+      colorText: "#8b949e",
+      borderRadius: 8,
+    },
+    Select: {
+      controlHeight: 40,
+      colorText: "#8b949e",
+      borderRadius: 8,
     },
     Tag: { 
       defaultBg: "#21262d", 
@@ -160,7 +166,13 @@ export const lightTheme: ThemeConfig = {
       controlHeight: 40,
       colorBorder: "#e6edf3",
       colorBgContainer: "#f7fafc",
-      colorTextPlaceholder: "#7b93a9",
+      colorText: "#67676d",
+      borderRadius: 8,
+    },
+    Select: {
+      controlHeight: 40,
+      colorText: "#67676d",
+      borderRadius: 8,
     },
     Tag: {
       defaultBg: "#f7fafc",
